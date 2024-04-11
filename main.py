@@ -23,7 +23,7 @@ def getListArticleLinks(soup:BeautifulSoup) -> list:
         link_url = link.get('href')
         print(f"link: {link_url}")
         if re.match(r"/artikel/", link_url):
-            link_list.append(link_url)
+            link_list.append("https://nos.nl"+link_url)
     return link_list
 
 
