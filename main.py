@@ -1,5 +1,6 @@
 import FScrape
 from Article import Article
+import json
 
 # INPUTS
 nos_latest_news_url = "https://nos.nl/nieuws/laatste"
@@ -12,6 +13,18 @@ if __name__=="__main__":
 
     # Create Aricle objects
     article_list = []
-    for link in link_list:
+    for link in link_list[0:1]: # TODO REMOVE SLICER
         article_list.append(Article(link))
+        print(f"link: {link}")
     
+    for article in article_list:
+        article_soup, article_html = FScrape.soupTextFromURL(article.url)
+        print(f"title: {article_soup.title.text}")
+        script_elements = article_soup.find_all('script')
+        for script in script_elements:
+            try:
+                json_data = json.loads(script.text)
+                article_body = json_data['articleBody']
+                print(F"article_text: {article_body}")
+            except:
+                pass
