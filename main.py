@@ -1,5 +1,6 @@
 import FScrape
 from Article import Article
+import numpy
 import json
 
 # INPUTS
@@ -15,16 +16,10 @@ if __name__=="__main__":
     article_list = []
     for link in link_list[0:1]: # TODO REMOVE SLICER
         article_list.append(Article(link))
-        print(f"link: {link}")
     
     for article in article_list:
-        article_soup, article_html = FScrape.soupTextFromURL(article.url)
-        print(f"title: {article_soup.title.text}")
-        script_elements = article_soup.find_all('script')
-        for script in script_elements:
-            try:
-                json_data = json.loads(script.text)
-                article_body = json_data['articleBody']
-                print(F"article_text: {article_body}")
-            except:
-                pass
+        print(f"link: {article.url}")
+        print(f"\ntitle: {article.title}")
+        print(F"\narticle_text: {article.text}")
+        print(F"\narticle_identifier: {article.ID}")
+        print(F"\narticle_date_time: {article.date_time}")
