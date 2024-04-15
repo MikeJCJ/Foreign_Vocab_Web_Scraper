@@ -6,7 +6,7 @@ import time
 
 # INPUTS
 nos_latest_news_url = "https://nos.nl/nieuws/laatste"
-mu, sigma = 5,2 # Scraper delay variables
+mu, sigma = 3,2 # Scraper delay variables
 
 def webDataScrape():
     # Get list of links from NOS latest news page
@@ -16,18 +16,18 @@ def webDataScrape():
 
     # Create Aricle objects
     article_list = []
-    for link in link_list[0:1]: # TODO REMOVE SLICER
+    for link in link_list[0:2]: # TODO REMOVE SLICER
         article_list.append(Article(link))
         delay = np.random.normal(mu, sigma)
-        if delay<2: delay=2
-        elif delay>10: delay=10
+        if delay<1: delay=1
+        elif delay>6: delay=6
         time.sleep(delay)
     
-    for article in article_list:
-        print(f"link: {article.url}")
-        print(f"\ntitle: {article.title}")
-        print(F"\narticle_text: {article.text}")
-        print(F"\narticle_identifier: {article.ID}")
-        print(F"\narticle_date_time: {article.date_time}")
+    article_dict_list = [{"ID":article.ID, "url":article.url, "title":article.title, "date_time":article.date_time, "text":article.text} for article in article_list]
+    json_string = json.dumps(article_dict_list)
+    with open('articles_scrapped.json','w') as outfile:
+        outfile.write(json_string)
+    
+    return article_dict_list
 
 webDataScrape()
