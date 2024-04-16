@@ -16,8 +16,8 @@ def webDataScrape():
 
     # Create Aricle objects
     article_list = []
-    for link in link_list[0:2]: # TODO REMOVE SLICER
-        article_list.append(Article(link))
+    for link in link_list[0:2]:
+        article_list.append(Article.fromScrape(link))
         delay = np.random.normal(mu, sigma)
         if delay<1: delay=1
         elif delay>6: delay=6
@@ -29,5 +29,3 @@ def webDataScrape():
         outfile.write(json_string)
     
     return article_dict_list
-
-webDataScrape()
