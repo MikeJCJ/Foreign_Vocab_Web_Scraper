@@ -13,10 +13,10 @@ def webDataScrape():
     nos_news_soup, nos_news_html = FScrape.soupTextFromURL(nos_latest_news_url)
     #writeStringToFile(nos_news_html, "output.txt")
     link_list = FScrape.getListArticleLinks(nos_news_soup)
-
+    
     # Create Aricle objects
     article_list = []
-    for link in link_list[0:2]:
+    for link in link_list:
         article_list.append(Article.fromScrape(link))
         delay = np.random.normal(mu, sigma)
         if delay<1: delay=1
