@@ -51,3 +51,6 @@ class Article():
             except:
                 pass
         return cls(ID, url, title, date_time, text)
+    
+    def retrieveWordList():
+        pass
