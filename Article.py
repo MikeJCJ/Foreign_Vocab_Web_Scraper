@@ -58,4 +58,5 @@ class Article():
     def retrieveWordList(self) -> list:
         text_no_punctuation = re.sub("[0-9]|[\.!\?\(\),]","", self.text)
         tokens = nltk.word_tokenize(text_no_punctuation)
-        return tokens
+        word_list = [token.upper() for token in tokens]
+        return word_list
