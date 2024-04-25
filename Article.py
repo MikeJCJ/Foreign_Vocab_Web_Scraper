@@ -1,5 +1,8 @@
 import FScrape
 import json
+import nltk
+nltk.download('punkt')
+import re
 
 class Article():
     
@@ -52,5 +55,7 @@ class Article():
                 pass
         return cls(ID, url, title, date_time, text)
     
-    def retrieveWordList():
-        pass
+    def retrieveWordList(self) -> list:
+        text_no_punctuation = re.sub("[0-9]|[\.!\?\(\),]","", self.text)
+        tokens = nltk.word_tokenize(text_no_punctuation)
+        return tokens
