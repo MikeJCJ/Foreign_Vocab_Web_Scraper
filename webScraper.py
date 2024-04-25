@@ -16,7 +16,7 @@ def webDataScrape():
     
     # Create Aricle objects
     article_list = []
-    for link in link_list[0:5]:
+    for link in link_list:
         article_list.append(Article.fromScrape(link))
         delay = np.random.normal(mu, sigma)
         if delay<1: delay=1
