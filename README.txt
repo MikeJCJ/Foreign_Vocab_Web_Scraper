@@ -6,5 +6,6 @@ This repository contains a python web scraper that will scrape Dutch words from 
 
 
 TODO:
-    - Create list of words that can be removed from word list (including the '' and `` error)
-    - Create list of basic words that are not important
+    - Take vocab list output and create macro that will create another excel with the words translated using the Excel extension.
+    - Convert this vocab list into 10x100 word decks that can be inserted into the flashcard app.
+    - Plan how this will integrate with the flashcard app
