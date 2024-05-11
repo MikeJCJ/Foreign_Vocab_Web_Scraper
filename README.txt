@@ -7,6 +7,6 @@ This repository contains a python web scraper that will scrape Dutch words from 
 
 TODO:
     - Automate filling text_translator with top 1000 words
-        - Double check this keeps the macro tomorrow
+        - The Excel gets locked open and doesnt work
     - Convert this vocab list into 10x100 word decks that can be inserted into the flashcard app.
     - Plan how this will integrate with the flashcard app
