@@ -2,10 +2,12 @@
 # NOS News Web Scraper #
 ------------------------
 
+Key Skills: Python Webscraping | Language Data Processing
+
 This repository contains a python web scraper that will scrape Dutch words from the latest news articles on https://nos.nl/nieuws/laatste.
 
-
-TODO:
-    - Automate filling text_translator with top 1000 words
-        - The Excel gets locked open and doesnt work
-        - Add to Excel and write in instructions to manually fill text_translator
+- Process -
+1 - Run scraper_controller.ipynb to scrape all latest articles from the nos.nl website.
+2 - Check word_list_filtered.csv for any invalid words (names, companies etc) or words which the user has already learned.
+    - Add these words to invalid_words.csv and learned_words.csv.
+3 - Re-run every couple days to get more accurate top 1000 words or to refresh word list due to filters.
