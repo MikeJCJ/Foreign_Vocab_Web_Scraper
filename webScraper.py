@@ -25,6 +25,7 @@ def webDataScrape():
     
     article_dict_list = [{"ID":article.ID, "url":article.url, "title":article.title, "date_time":article.date_time, "text":article.text} for article in article_list]
     json_string = json.dumps(article_dict_list)
+    
     with open('articles_scrapped.json','w') as outfile:
         outfile.write(json_string)
 
